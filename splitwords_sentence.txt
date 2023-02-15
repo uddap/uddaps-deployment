@@ -1,0 +1,8 @@
+# str = "hannah"
+str = input("Enter the string: ")
+# l = str.len()
+rev = str[::-1]
+if str == rev:
+    print("the given string is a palindrome!.")
+else:
+    print("the given string is not a palindrome!.")

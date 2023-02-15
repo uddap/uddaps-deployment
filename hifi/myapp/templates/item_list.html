@@ -1,0 +1,16 @@
+# item_list.html
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Item List</h1>
+    <ul>
+    {% for item in items %}
+        <li>
+            <h2>{{ item.name }}</h2>
+            <p>{{ item.description }}</p>
+            <p>{{ item.price }}</p>
+            <img src="{{ item.image.url }}">
+        </li>
+    {% endfor %}
+    </ul>
+{% endblock %}
