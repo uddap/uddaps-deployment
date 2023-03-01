@@ -10,11 +10,19 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.10/ref/settings/
 """
 
-import os
-
+# import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-TEMPLATE_DIR = os.path.join(BASE_DIR,'blog/templates/blog')
+# BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# TEMPLATE_DIR = os.path.join(BASE_DIR,'blog/templates/blog')
+
+import os
+from pathlib import Path
+
+# Build paths inside the project like this: BASE_DIR / 'subdir'.
+BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR1=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+TEMPLATE_DIR=os.path.join(BASE_DIR1,'blog/templates/blog')
+STATIC_DIR=os.path.join(BASE_DIR1,'static')
 
 
 # Quick-start development settings - unsuitable for production
@@ -76,10 +84,21 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'mydb',
+        'USER': 'root',
+        'PASSWORD': 'root',
+        'HOST': '127.0.0.1',
+        'PORT': '3306',
     }
 }
 
@@ -101,7 +120,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/1.10/topics/i18n/
 
@@ -115,14 +133,23 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_URL = 'static/'
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+# STATICFILES_DIRS = [
+#     # other static files directories
+#     os.path.join(BASE_DIR, 'static'),
+#     os.path.join(BASE_DIR, 'bootstrap'),
+# ]
 
 LOGIN_REDIRECT_URL = '/'
 
 
 DEBUG = True
+
+
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

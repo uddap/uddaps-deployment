@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" serverName="SS" remoteFilesAllowedToDisappearOnAutoupload="false">
+    <serverData>
+      <paths name="SS">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+            <mapping deploy="." local="$PROJECT_DIR$/simple_social_clone/simplesocial" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+  </component>
+</project>
